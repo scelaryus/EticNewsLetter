@@ -1,20 +1,147 @@
+"use client"
+import { useState } from 'react';
+
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleEmailSubmit = async () => {
+    if (!email || !email.includes('@')) {
+      alert('Enter your E-Mail');
+      return;
+    }
+    setIsSubmitting(true);
+
+    try {
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (Math.random() > 0.1) {
+            resolve(true);
+          } else {
+            reject(new Error('Failed'));
+          }
+        }, 1000);
+      });
+
+      window.location.href = '/success';
+      
+    } catch (error) {
+      window.location.href = '/Error';
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleEmailSubmit();
+    }
+  };
+
   return (
     <main>
       <header>
-        <a href="https://etic-club.net/"><img src="/img/logo.png" alt="Logo ETIC" className="logo" /></a>
+        <a href="https://etic-club.net/">
+          <img src="/img/logo.png" alt="Logo ETIC" className="logo" />
+        </a>
       </header>
-      <div>
-            <label htmlFor="email">
-                E-Mail<span>*</span>
-            </label>
-            <input
-                id='email'
-                type="email"
-                placeholder="Enter your E-Mail"
-                required
-             />
+
+      <div className="form-container">
+        {/* Titre et sous-titre */}
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h1 style={{ 
+            fontSize: '2.5rem', 
+            fontWeight: 'bold', 
+            color: '#0f9f96',
+            marginBottom: '0.5rem'
+          }}>
+            Stay Updated
+          </h1>
+          <p style={{ 
+            color: '#6b7280', 
+            fontSize: '1rem',
+            marginBottom: '0'
+          }}>
+            Ne manquez aucune actualité du club ETIC
+          </p>
         </div>
+
+        {/* Champ Email */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label htmlFor="email">
+            E-Mail<span className="required">*</span>
+          </label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Enter your E-Mail"
+            required
+            disabled={isSubmitting}
+          />
+        </div>
+
+        {/* Bouton Subscribe */}
+        <button
+          onClick={handleEmailSubmit}
+          disabled={isSubmitting}
+          style={{
+            width: '100%',
+            padding: '16px 32px',
+            borderRadius: '8px',
+            fontWeight: '600',
+            fontSize: '18px',
+            border: 'none',
+            cursor: isSubmitting ? 'not-allowed' : 'pointer',
+            background: 'linear-gradient(to right, #ff6b35, #00d9ff)',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            transition: 'all 0.3s ease',
+            opacity: isSubmitting ? 0.6 : 1
+          }}
+          onMouseEnter={(e) => {
+            if (!isSubmitting) {
+              e.currentTarget.style.background = 'linear-gradient(to right, #0d9488, #14b8a6)';
+              e.currentTarget.style.transform = 'scale(1.05)';
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isSubmitting) {
+              e.currentTarget.style.background = 'linear-gradient(to right, #ff6b35, #00d9ff)';
+              e.currentTarget.style.transform = 'scale(1)';
+            }
+          }}
+        >
+          <svg 
+            style={{ width: '20px', height: '20px' }}
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
+            />
+          </svg>
+          {isSubmitting ? 'Inscription...' : 'Subscribe'}
+        </button>
+
+        {/* Info text */}
+        <p style={{ 
+          fontSize: '12px', 
+          color: '#9ca3af', 
+          marginTop: '24px',
+          textAlign: 'center'
+        }}>
+          Rejoignez notre communauté et restez informé des événements, 
+          formations et opportunités du club ETIC
+        </p>
+      </div>
     </main>
   );
 }
