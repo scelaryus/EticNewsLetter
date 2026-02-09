@@ -1,12 +1,12 @@
-"use client"
-import React, { useState } from 'react';
-import './SubscribeButton.css';
+"use client";
+import React, { useState } from "react";
+import "./SubscribeButton.css";
 
 const SubscribeButton = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    console.log('Subscribe button clicked!');
+    console.log("Subscribe button clicked!");
   };
 
   return (
@@ -19,30 +19,37 @@ const SubscribeButton = () => {
           </p>
         </div>
 
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="subscribe-input"
+          aria-label="Email"
+        />
+
         <button
           onClick={handleClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="subscribe-button"
+          className={`subscribe-button ${isHovered ? "hovered" : ""}`}
         >
-          <svg 
+          <svg
             className="button-icon"
-            fill="none" 
-            stroke="currentColor" 
+            fill="none"
+            stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           </svg>
           Subscribe
         </button>
 
         <p className="subscribe-info">
-          Rejoignez notre communauté et restez informé des événements, 
+          Rejoignez notre communauté et restez informé des événements,
           formations et opportunités du club ETIC
         </p>
       </div>
@@ -51,3 +58,5 @@ const SubscribeButton = () => {
 };
 
 export default SubscribeButton;
+
+

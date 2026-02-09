@@ -7,7 +7,7 @@
 }
 
 .content {
-  max-width: 2rem28rem;
+  max-width: 28rem;
   width: 100%;
   text-align: center;
 }
@@ -20,7 +20,7 @@
   font-size: 2.25rem;
   font-weight: bold;
   color: #0f9f96;
-  margin-bottom: 8px; 
+  margin-bottom: 8px;
 }
 
 .subtitle {
@@ -29,9 +29,25 @@
   margin: 0;
 }
 
+.subscribe-input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.subscribe-input:focus {
+  outline: none;
+  border-color: #0f9f96;
+  box-shadow: 0 0 0 3px rgba(15, 159, 150, 0.2);
+}
+
 .subscribe-button {
   width: 100%;
-  padding: 16px 32px ;
+  padding: 16px 32px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 18px;
@@ -46,11 +62,12 @@
   transition: all 0.3s ease;
 }
 
-.subscribe-button:hover {
-          background: linear-gradient(to right, #0d9488, #14b8a6);;
-          transform: scale(1.05);
-          box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.5);
-        }
+.subscribe-button:hover,
+.subscribe-button.hovered {
+  background: linear-gradient(to right, #0d9488, #14b8a6);
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.5);
+}
 
 .subscribe-button:active {
   transform: scale(0.95);
@@ -62,16 +79,16 @@
 }
 
 .subscribe-info {
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
   margin-top: 24px;
 }
 
 @media (max-width: 768px) {
-  .subscribe-title {
-    font-size: 30px;
+  .title {
+    font-size: 1.875rem;
   }
-  
+
   .subscribe-button {
     font-size: 16px;
     padding: 14px 24px;
