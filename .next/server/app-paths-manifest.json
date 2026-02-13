@@ -1,0 +1,5 @@
+{
+  "/(payload)/api/subscribe/route": "app/(payload)/api/subscribe/route.js",
+  "/(frontend)/page": "app/(frontend)/page.js",
+  "/(frontend)/search/page": "app/(frontend)/search/page.js"
+}
