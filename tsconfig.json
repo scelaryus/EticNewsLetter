@@ -47,7 +47,7 @@
     "redirects.js",
     "next.config.js",
     "next-sitemap.config.cjs"
-  ],
+, "src/components/subscribeButton/subscribe.jsx"  ],
   "exclude": [
     "node_modules"
   ]

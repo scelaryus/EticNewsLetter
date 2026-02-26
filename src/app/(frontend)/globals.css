@@ -1,103 +1,111 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: unset;
-    font-weight: unset;
-  }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f8f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+        header {
+            margin-left: 5px;
+            margin-top: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
 
-    --card: 240 5% 96%;
-    --card-foreground: 222.2 84% 4.9%;
+        .logo {
+            width: 5%;
+            height: 5%;
+        }
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+        }
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 12px;
+        }
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+        .required {
+            color: #ff4444;
+        }
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #e8e8e8;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+        input[type="email"]::placeholder {
+            color: #999;
+        }
 
-    --border: 240 6% 80%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+        input[type="email"]:focus {
+            outline: none;
+            background-color: #d8d8d8;
+        }
 
-    --radius: 0.2rem;
+        .success-card {
+            background-color: #ffffff;
+            padding: 10rem;
+            border-radius: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-    --success: 196 52% 74%;
-    --warning: 34 89% 85%;
-    --error: 10 100% 86%;
-  }
+        .color-green {
+            color: #3ea537;
+        }
 
-  [data-theme='dark'] {
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
+        .color-red {
+            color: #e10606;
+        }
 
-    --card: 0 0% 4%;
-    --card-foreground: 210 40% 98%;
+        .paragraph {
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 20px;
+            }
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+            .logo {
+                width: 48px;
+                height: 48px;
+            }
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+            main {
+                padding: 20px;
+            }
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 0, 0%, 15%, 0.8;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-
-    --success: 196 100% 14%;
-    --warning: 34 51% 25%;
-    --error: 10 39% 43%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
-  }
-}
-
-html {
-  opacity: 0;
-}
-
-html[data-theme='dark'],
-html[data-theme='light'] {
-  opacity: initial;
-}
+            .form-container {
+                max-width: 100%;
+            }
+        }
